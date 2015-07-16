@@ -25,7 +25,7 @@
     // Or you will have to call reloadAppearance
     {
         self.calendar.calendarAppearance.calendar.firstWeekday = 2; // Sunday == 1, Saturday == 7
-        self.calendar.calendarAppearance.dayCircleRatio = 6. / 10.;
+        self.calendar.calendarAppearance.dayCircleRatio = 7. / 10.;
         self.calendar.calendarAppearance.dayCircleColorSelected = [UIColor colorWithRed:1 green:0.51 blue:0 alpha:1];
         self.calendar.calendarAppearance.dayTextColorToday = [UIColor colorWithRed:1 green:0.51 blue:0 alpha:1];
         self.calendar.calendarAppearance.dayCircleColorToday = [UIColor clearColor];

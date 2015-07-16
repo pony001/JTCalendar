@@ -9,8 +9,6 @@
 
 #import "JTCalendarDayView.h"
 
-#define OFFSET_LEFT 12
-
 @interface JTCalendarWeekView (){
     NSArray *daysViews;
 };
@@ -59,15 +57,16 @@
 
 - (void)layoutSubviews
 {
-    CGFloat x = OFFSET_LEFT;
+    CGFloat x = 0;
     CGFloat width = self.calendarManager.calendarAppearance.dayViewSize.width;//self.frame.size.width / 7.;
     CGFloat height = self.calendarManager.calendarAppearance.dayViewSize.height;
-    CGFloat offset = (self.frame.size.width - 2 * OFFSET_LEFT - width * 7) / 6.;
+    CGFloat offset = (self.frame.size.width - width * 7) / 6.;
     
     if(self.calendarManager.calendarAppearance.readFromRightToLeft){
         for(UIView *view in [[self.subviews reverseObjectEnumerator] allObjects]){
             view.frame = CGRectMake(x, 0, width, height);
             x = CGRectGetMaxX(view.frame);
+            x = x + offset;
         }
     } else{
         for(UIView *view in self.subviews){
