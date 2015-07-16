@@ -80,22 +80,41 @@
 {
     CGFloat weeksToDisplay;
     
-    if(cacheLastWeekMode){
-        weeksToDisplay = 2.;
+    if(cacheLastWeekMode) {
+        weeksToDisplay = 1.;
+    } else {
+        weeksToDisplay = (CGFloat)(WEEKS_TO_DISPLAY);
     }
-    else{
-        weeksToDisplay = (CGFloat)(WEEKS_TO_DISPLAY + 1); // + 1 for weekDays
+    
+    if (self.calendarManager.calendarAppearance.showWeekdaysView) {
+        weeksToDisplay = weeksToDisplay + 1;
     }
     
     CGFloat y = 0;
     CGFloat width = self.frame.size.width;
-    CGFloat height = self.frame.size.height / weeksToDisplay;
+    CGFloat height = self.calendarManager.calendarAppearance.dayViewSize.height;//self.frame.size.height / weeksToDisplay;
     
-    for(int i = 0; i < self.subviews.count; ++i){
+    if (weeksToDisplay == 1) {
+        
+    }
+    CGFloat offset = 0;
+    if (weeksToDisplay > 1) {
+        offset = (self.frame.size.height - height * weeksToDisplay) / (weeksToDisplay - 1);
+    }
+    
+    for(int i = 0; i < self.subviews.count; ++i) {
         UIView *view = self.subviews[i];
+        if (i == 0 && !self.calendarManager.calendarAppearance.showWeekdaysView) {
+            view.frame = CGRectMake(0, y, width, 0);
+            view.hidden = YES;
+            continue;
+        } else {
+            view.hidden = NO;
+        }
         
         view.frame = CGRectMake(0, y, width, height);
         y = CGRectGetMaxY(view.frame);
+        y = y + offset;
         
         if(cacheLastWeekMode && i == weeksToDisplay - 1){
             height = 0.;

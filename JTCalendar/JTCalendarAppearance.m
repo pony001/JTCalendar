@@ -45,6 +45,7 @@
 
     // Day size
     self.dayViewSize = CGSizeMake(34, 34);
+    self.showWeekdaysView = YES;
     // Day Background and Border
     self.dayBackgroundColor = [UIColor clearColor];
     self.dayBorderWidth = 0.0f;

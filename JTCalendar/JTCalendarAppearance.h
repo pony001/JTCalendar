@@ -44,6 +44,8 @@ typedef NSString *(^JTCalendarMonthBlock)(NSDate *date, JTCalendar *jt_calendar)
 
 @property (nonatomic) CGSize dayViewSize;
 
+@property (assign, nonatomic) BOOL showWeekdaysView;
+
 #pragma mark - Month
 
 /**

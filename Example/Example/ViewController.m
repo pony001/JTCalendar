@@ -38,6 +38,7 @@
         self.calendar.calendarAppearance.dayDotColorSelected = [UIColor colorWithRed:1 green:0.51 blue:0 alpha:1];
         self.calendar.calendarAppearance.dayDotColorToday = [UIColor colorWithRed:1 green:0.51 blue:0 alpha:1];
         self.calendar.calendarAppearance.useCacheSystem = NO;
+        
         // Customize the text for each month
         self.calendar.calendarAppearance.monthBlock = ^NSString *(NSDate *date, JTCalendar *jt_calendar){
             NSCalendar *calendar = jt_calendar.calendarAppearance.calendar;
@@ -85,6 +86,12 @@
 {
     self.calendar.calendarAppearance.isWeekMode = !self.calendar.calendarAppearance.isWeekMode;
     
+    if(self.calendar.calendarAppearance.isWeekMode){
+        self.calendar.calendarAppearance.showWeekdaysView = NO;
+    } else {
+        self.calendar.calendarAppearance.showWeekdaysView = YES;
+    }
+    
     [self transitionExample];
 }
 
@@ -117,9 +124,9 @@
 
 - (void)transitionExample
 {
-    CGFloat newHeight = 300;
+    CGFloat newHeight = 420;
     if(self.calendar.calendarAppearance.isWeekMode){
-        newHeight = 75.;
+        newHeight = 34.;
     }
     
     [UIView animateWithDuration:.5
