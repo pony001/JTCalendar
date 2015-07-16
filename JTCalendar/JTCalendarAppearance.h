@@ -39,6 +39,11 @@ typedef NSString *(^JTCalendarMonthBlock)(NSDate *date, JTCalendar *jt_calendar)
 @property (assign, nonatomic) BOOL focusSelectedDayChangeMode;
 @property (assign, nonatomic) BOOL readFromRightToLeft; // For language read from right to left
 
+
+#pragma mark - dayView rect
+
+@property (nonatomic) CGSize dayViewSize;
+
 #pragma mark - Month
 
 /**
