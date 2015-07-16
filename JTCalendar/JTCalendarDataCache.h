@@ -13,7 +13,6 @@
 
 @property (weak, nonatomic) JTCalendar *calendarManager;
 
-- (void)reloadData;
-- (BOOL)haveEvent:(NSDate *)date;
+- (float)targetPercentageForDate:(NSDate *)date;
 
 @end

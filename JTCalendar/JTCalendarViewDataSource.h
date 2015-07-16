@@ -11,7 +11,7 @@
 
 @protocol JTCalendarDataSource <NSObject>
 
-- (BOOL)calendarHaveEvent:(JTCalendar *)calendar date:(NSDate *)date;
+- (float)calendar:(JTCalendar *)calendar targetPercentageForDate:(NSDate *)date;
 - (void)calendarDidDateSelected:(JTCalendar *)calendar date:(NSDate *)date;
 
 @optional

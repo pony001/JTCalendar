@@ -25,10 +25,19 @@
     // Or you will have to call reloadAppearance
     {
         self.calendar.calendarAppearance.calendar.firstWeekday = 2; // Sunday == 1, Saturday == 7
-        self.calendar.calendarAppearance.dayCircleRatio = 9. / 10.;
+        self.calendar.calendarAppearance.dayCircleRatio = 6. / 10.;
+        self.calendar.calendarAppearance.dayCircleColorSelected = [UIColor colorWithRed:1 green:0.51 blue:0 alpha:1];
+        self.calendar.calendarAppearance.dayTextColorToday = [UIColor colorWithRed:1 green:0.51 blue:0 alpha:1];
+        self.calendar.calendarAppearance.dayCircleColorToday = [UIColor clearColor];
+        
         self.calendar.calendarAppearance.ratioContentMenu = 2.;
         self.calendar.calendarAppearance.focusSelectedDayChangeMode = YES;
         
+        self.calendar.calendarAppearance.dayDotRatio = 1;
+        self.calendar.calendarAppearance.dayDotColor = [UIColor colorWithRed:1 green:0.51 blue:0 alpha:1];
+        self.calendar.calendarAppearance.dayDotColorSelected = [UIColor colorWithRed:1 green:0.51 blue:0 alpha:1];
+        self.calendar.calendarAppearance.dayDotColorToday = [UIColor colorWithRed:1 green:0.51 blue:0 alpha:1];
+        self.calendar.calendarAppearance.useCacheSystem = NO;
         // Customize the text for each month
         self.calendar.calendarAppearance.monthBlock = ^NSString *(NSDate *date, JTCalendar *jt_calendar){
             NSCalendar *calendar = jt_calendar.calendarAppearance.calendar;
@@ -81,15 +90,9 @@
 
 #pragma mark - JTCalendarDataSource
 
-- (BOOL)calendarHaveEvent:(JTCalendar *)calendar date:(NSDate *)date
+- (float)calendar:(JTCalendar *)calendar targetPercentageForDate:(NSDate *)date
 {
-    NSString *key = [[self dateFormatter] stringFromDate:date];
-    
-    if(eventsByDate[key] && [eventsByDate[key] count] > 0){
-        return YES;
-    }
-    
-    return NO;
+    return arc4random()*1./UINT32_MAX;
 }
 
 - (void)calendarDidDateSelected:(JTCalendar *)calendar date:(NSDate *)date

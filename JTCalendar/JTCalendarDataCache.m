@@ -9,10 +9,7 @@
 
 #import "JTCalendar.h"
 
-@interface JTCalendarDataCache(){
-    NSMutableDictionary *events;
-    NSDateFormatter *dateFormatter;
-};
+@interface JTCalendarDataCache(){};
 
 @end
 
@@ -25,40 +22,20 @@
         return nil;
     }
     
-    dateFormatter = [NSDateFormatter new];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    events = [NSMutableDictionary new];
-    
     return self;
 }
 
-- (void)reloadData
-{
-    [events removeAllObjects];
-}
-
-- (BOOL)haveEvent:(NSDate *)date
+- (float)targetPercentageForDate:(NSDate *)date
 {
     if(!self.calendarManager.dataSource){
-        return NO;
+        return 0;
     }
     
     if(!self.calendarManager.calendarAppearance.useCacheSystem){
-        return [self.calendarManager.dataSource calendarHaveEvent:self.calendarManager date:date];
+        return [self.calendarManager.dataSource calendar:self.calendarManager targetPercentageForDate:date];
     }
     
-    BOOL haveEvent;
-    NSString *key = [dateFormatter stringFromDate:date];
-    
-    if(events[key] != nil){
-        haveEvent = [events[key] boolValue];
-    }
-    else{
-        haveEvent = [self.calendarManager.dataSource calendarHaveEvent:self.calendarManager date:date];
-        events[key] = [NSNumber numberWithBool:haveEvent];
-    }
-    
-    return haveEvent;
+    return 0;
 }
 
 @end

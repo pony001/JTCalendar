@@ -72,7 +72,7 @@
 - (void)reloadData
 {
     // Erase cache
-    [self.dataCache reloadData];
+    //[self.dataCache reloadData];
     
     [self repositionViews];
     [self.contentView reloadData];
