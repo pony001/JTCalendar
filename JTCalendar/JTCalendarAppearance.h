@@ -51,6 +51,11 @@ typedef NSString *(^JTCalendarMonthBlock)(NSDate *date, JTCalendar *jt_calendar)
 #pragma mark - Month
 
 /**
+ *	The default value of this property is @c YES.
+ */
+@property (nonatomic) BOOL showOtherMonth;
+
+/**
  *	The default value of this property is @c blackColor.
  */
 @property (nonatomic) UIColor *menuMonthTextColor;

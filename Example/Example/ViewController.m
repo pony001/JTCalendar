@@ -41,6 +41,7 @@
         
         self.calendar.calendarAppearance.monthViewLeft = 12;
         self.calendar.calendarAppearance.monthViewRight = 12;
+        self.calendar.calendarAppearance.showOtherMonth = NO;
         // Customize the text for each month
         self.calendar.calendarAppearance.monthBlock = ^NSString *(NSDate *date, JTCalendar *jt_calendar){
             NSCalendar *calendar = jt_calendar.calendarAppearance.calendar;

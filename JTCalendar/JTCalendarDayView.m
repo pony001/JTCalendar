@@ -235,9 +235,15 @@ static NSString *const kJTCalendarDaySelected = @"kJTCalendarDaySelected";
         else{
             textLabel.textColor = [self.calendarManager.calendarAppearance dayTextColorOtherMonth];
             targetView.color = [self.calendarManager.calendarAppearance dayDotColorOtherMonth];
-        }
+        } 
         
         opacity = 0.;
+    }
+    
+    if (!self.calendarManager.calendarAppearance.showOtherMonth && self.isOtherMonth) {
+        self.hidden = YES;
+    } else {
+        self.hidden = NO;
     }
     
     if(animated){

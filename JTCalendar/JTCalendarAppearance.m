@@ -50,6 +50,8 @@
     self.monthViewLeft = 0.;
     self.monthViewRight = 0.;
     
+    self.showOtherMonth = YES;
+    
     // Day Background and Border
     self.dayBackgroundColor = [UIColor clearColor];
     self.dayBorderWidth = 0.0f;
