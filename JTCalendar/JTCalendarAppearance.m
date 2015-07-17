@@ -43,6 +43,8 @@
 
     self.dayFormat = @"dd";
 
+    self.startDate = [NSDate dateWithTimeIntervalSince1970:0];
+    self.endDate = [NSDate date];
     // Day size
     self.dayViewSize = CGSizeMake(34, 34);
     self.showWeekdaysView = YES;
@@ -76,6 +78,9 @@
     self.dayCircleColorToday = [UIColor colorWithRed:0x33/256. green:0xB3/256. blue:0xEC/256. alpha:.5];
     self.dayTextColorToday = [UIColor whiteColor];
     self.dayDotColorToday = [UIColor whiteColor];
+    
+    self.dayTextOutOfRangeColor = [UIColor colorWithRed:240./256 green:240./256 blue:240./256 alpha:1];
+    self.dayDotOutOfRangeColor = [UIColor colorWithRed:240./256 green:240./256 blue:240./256 alpha:1];
     
     self.dayCircleColorTodayOtherMonth = self.dayCircleColorToday;
     self.dayTextColorTodayOtherMonth = self.dayTextColorToday;

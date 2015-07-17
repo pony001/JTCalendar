@@ -200,7 +200,21 @@ static NSString *const kJTCalendarDaySelected = @"kJTCalendarDaySelected";
     CGAffineTransform tr = CGAffineTransformIdentity;
     CGFloat opacity = 1.;
     
-    if(selected){
+    BOOL isOutOfRange = NO;
+    NSTimeInterval timeIntervalStart = [self.date timeIntervalSinceDate:self.calendarManager.calendarAppearance.startDate];
+    if (timeIntervalStart < 0) {
+        isOutOfRange = YES;
+    }
+    NSTimeInterval timeIntervalEnd = [self.date timeIntervalSinceDate:self.calendarManager.calendarAppearance.endDate];
+    if (timeIntervalEnd > 0) {
+        isOutOfRange = YES;
+    }
+    
+    if (isOutOfRange) {
+        textLabel.textColor = [self.calendarManager.calendarAppearance dayTextOutOfRangeColor];
+        targetView.color = [self.calendarManager.calendarAppearance dayDotOutOfRangeColor];
+    }
+    else if(selected){
         if(!self.isOtherMonth){
             circleView.color = [self.calendarManager.calendarAppearance dayCircleColorSelected];
             textLabel.textColor = [self.calendarManager.calendarAppearance dayTextColorSelected];

@@ -21,7 +21,7 @@
     
     self.backgroundColor = [UIColor clearColor];
     self.color = [UIColor colorWithRed:1 green:0.51 blue:0 alpha:1];//[UIColor whiteColor];
-    self.bgColor = [UIColor colorWithRed:240./255 green:240./255 blue:240./255 alpha:1];
+    self.bgColor = [UIColor colorWithRed:240./256 green:240./256 blue:240./256 alpha:1];
     self.anglePercent = 0;
     
     width = 2;

@@ -48,6 +48,11 @@ typedef NSString *(^JTCalendarMonthBlock)(NSDate *date, JTCalendar *jt_calendar)
 
 @property (assign, nonatomic) BOOL showWeekdaysView;
 
+#pragma mark - Calendar range
+
+@property (nonatomic) NSDate *startDate;
+@property (nonatomic) NSDate *endDate;
+
 #pragma mark - Month
 
 /**
@@ -127,6 +132,12 @@ typedef NSString *(^JTCalendarMonthBlock)(NSDate *date, JTCalendar *jt_calendar)
 @property (nonatomic) UIColor *dayDotColor;
 
 /**
+ *	The default value of this property is this blue nuance:
+ *	@code [UIColor colorWithRed:43./256. green:88./256. blue:1134./256. alpha:1.] @endcode
+ */
+@property (nonatomic) UIColor *dayDotOutOfRangeColor;
+
+/**
  *	The default value of this property is @c whiteColor.
  */
 @property (nonatomic) UIColor *dayDotColorSelected;
@@ -156,6 +167,12 @@ typedef NSString *(^JTCalendarMonthBlock)(NSDate *date, JTCalendar *jt_calendar)
  *	The default value of this property is @c blackColor.
  */
 @property (nonatomic) UIColor *dayTextColor;
+
+/**
+ *	The default value of this property is @c blackColor.
+ *  @code [UIColor colorWithRed:43./256. green:88./256. blue:1134./256. alpha:1.] @endcode
+ */
+@property (nonatomic) UIColor *dayTextOutOfRangeColor;
 
 /**
  *	The default value of this property is @c whiteColor.
