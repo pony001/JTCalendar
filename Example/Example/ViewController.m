@@ -39,6 +39,8 @@
         self.calendar.calendarAppearance.dayDotColorToday = [UIColor colorWithRed:1 green:0.51 blue:0 alpha:1];
         self.calendar.calendarAppearance.useCacheSystem = NO;
         
+        self.calendar.calendarAppearance.monthViewLeft = 12;
+        self.calendar.calendarAppearance.monthViewRight = 12;
         // Customize the text for each month
         self.calendar.calendarAppearance.monthBlock = ^NSString *(NSDate *date, JTCalendar *jt_calendar){
             NSCalendar *calendar = jt_calendar.calendarAppearance.calendar;
@@ -59,6 +61,12 @@
             
             return [NSString stringWithFormat:@"%ld\n%@", comps.year, monthText];
         };
+    }
+    
+    {
+        self.calendar.calendarAppearance.isWeekMode = YES;
+        self.calendar.calendarAppearance.showWeekdaysView = NO;
+        self.calendarContentViewHeight.constant = 34.;
     }
     
     [self.calendar setMenuMonthsView:self.calendarMenuView];
@@ -113,11 +121,16 @@
 - (void)calendarDidLoadPreviousPage
 {
     NSLog(@"Previous page loaded");
+    
 }
 
 - (void)calendarDidLoadNextPage
 {
     NSLog(@"Next page loaded");
+//    [self.calendar setCurrentDateSelected:[NSDate date]];
+//    [self.calendar reloadAppearance];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"kJTCalendarDaySelected" object:[NSDate date]];
+//    
 }
 
 #pragma mark - Transition examples

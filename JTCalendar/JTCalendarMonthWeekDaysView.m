@@ -94,10 +94,13 @@ static NSArray *cacheDaysOfWeeks;
 
 - (void)layoutSubviews
 {
-    CGFloat x = 0;
+    CGFloat monthViewLeft = self.calendarManager.calendarAppearance.monthViewLeft;
+    CGFloat monthViewRight = self.calendarManager.calendarAppearance.monthViewRight;
+    
+    CGFloat x = monthViewLeft;
     CGFloat width = self.calendarManager.calendarAppearance.dayViewSize.width;//self.frame.size.width / 7.;
     CGFloat height = self.frame.size.height;
-    CGFloat offset = (self.frame.size.width - width * 7) / 6.;
+    CGFloat offset = (self.frame.size.width - monthViewLeft - monthViewRight - width * 7) / 6.;
     
     if(self.calendarManager.calendarAppearance.readFromRightToLeft){
         for(UIView *view in [[self.subviews reverseObjectEnumerator] allObjects]){
