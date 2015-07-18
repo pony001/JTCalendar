@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A478836B7E6915F6A886DADD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A32EECC3DD04D628CA764863 /* libPods.a */; };
+		28F311B51B5A7BC1009F0F8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB6843EC1A06FCE2000ADE68 /* Main.storyboard */; };
+		28F311B61B5A7BC9009F0F8A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB6843F11A06FCE2000ADE68 /* LaunchScreen.xib */; };
 		AB6843E51A06FCE2000ADE68 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6843E41A06FCE2000ADE68 /* main.m */; };
 		AB6843E81A06FCE2000ADE68 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6843E71A06FCE2000ADE68 /* AppDelegate.m */; };
 		AB6843EB1A06FCE2000ADE68 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6843EA1A06FCE2000ADE68 /* ViewController.m */; };
-		AB6843EE1A06FCE2000ADE68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB6843EC1A06FCE2000ADE68 /* Main.storyboard */; };
 		AB6843F01A06FCE2000ADE68 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6843EF1A06FCE2000ADE68 /* Images.xcassets */; };
-		AB6843F31A06FCE2000ADE68 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB6843F11A06FCE2000ADE68 /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		28F311B31B5A7B9C009F0F8A /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		A32EECC3DD04D628CA764863 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6843DF1A06FCE2000ADE68 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6843E31A06FCE2000ADE68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -37,7 +37,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A478836B7E6915F6A886DADD /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +97,7 @@
 		AF6935C573AD6FA5BBD10BEC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				28F311B31B5A7B9C009F0F8A /* libPods.a */,
 				A32EECC3DD04D628CA764863 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -131,6 +131,7 @@
 		AB6843D71A06FCE2000ADE68 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = P;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Jonathan Tribouharet";
 				TargetAttributes = {
@@ -162,8 +163,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB6843EE1A06FCE2000ADE68 /* Main.storyboard in Resources */,
-				AB6843F31A06FCE2000ADE68 /* LaunchScreen.xib in Resources */,
+				28F311B61B5A7BC9009F0F8A /* LaunchScreen.xib in Resources */,
+				28F311B51B5A7BC1009F0F8A /* Main.storyboard in Resources */,
 				AB6843F01A06FCE2000ADE68 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,9 +319,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/JTCalendar\"",
+				);
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -331,9 +340,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/JTCalendar\"",
+				);
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

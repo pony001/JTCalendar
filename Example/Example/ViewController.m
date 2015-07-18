@@ -19,7 +19,7 @@
 {
     [super viewDidLoad];
     
-    self.calendar = [JTCalendar new];
+    self.calendar = [PJTCalendar new];
     
     // All modifications on calendarAppearance have to be done before setMenuMonthsView and setContentView
     // Or you will have to call reloadAppearance
@@ -43,7 +43,7 @@
         self.calendar.calendarAppearance.monthViewRight = 12;
         self.calendar.calendarAppearance.showOtherMonth = NO;
         // Customize the text for each month
-        self.calendar.calendarAppearance.monthBlock = ^NSString *(NSDate *date, JTCalendar *jt_calendar){
+        self.calendar.calendarAppearance.monthBlock = ^NSString *(NSDate *date, PJTCalendar *jt_calendar){
             NSCalendar *calendar = jt_calendar.calendarAppearance.calendar;
             NSDateComponents *comps = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth fromDate:date];
             NSInteger currentMonthIndex = comps.month;
@@ -106,12 +106,12 @@
 
 #pragma mark - JTCalendarDataSource
 
-- (float)calendar:(JTCalendar *)calendar targetPercentageForDate:(NSDate *)date
+- (float)calendar:(PJTCalendar *)calendar targetPercentageForDate:(NSDate *)date
 {
     return arc4random()*1./UINT32_MAX;
 }
 
-- (void)calendarDidDateSelected:(JTCalendar *)calendar date:(NSDate *)date
+- (void)calendarDidDateSelected:(PJTCalendar *)calendar date:(NSDate *)date
 {
     NSString *key = [[self dateFormatter] stringFromDate:date];
     NSArray *events = eventsByDate[key];

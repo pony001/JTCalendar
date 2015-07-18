@@ -7,15 +7,15 @@
 
 #import <UIKit/UIKit.h>
 
-#import "JTCalendar.h"
+#import "PJTCalendar.h"
 
-@interface ViewController : UIViewController<JTCalendarDataSource>
+@interface ViewController : UIViewController<PJTCalendarDataSource>
 
-@property (weak, nonatomic) IBOutlet JTCalendarMenuView *calendarMenuView;
-@property (weak, nonatomic) IBOutlet JTCalendarContentView *calendarContentView;
+@property (weak, nonatomic) IBOutlet PJTCalendarMenuView *calendarMenuView;
+@property (weak, nonatomic) IBOutlet PJTCalendarContentView *calendarContentView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *calendarContentViewHeight;
 
-@property (strong, nonatomic) JTCalendar *calendar;
+@property (strong, nonatomic) PJTCalendar *calendar;
 
 @end
