@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "JTCalendar"
+  s.name         = "PJTCalendar"
   s.version      = "1.2.3"
   s.summary      = "A customizable calendar view for iOS."
   s.homepage     = "https://github.com/pony001/JTCalendar"
