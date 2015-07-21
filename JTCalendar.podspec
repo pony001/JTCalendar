@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT' }
   s.author       = { "Jonathan Tribouharet" => "jonathan.tribouharet@gmail.com" }
   s.platform     = :ios, '7.0'
-  s.source       = { :git => "https://github.com/pony001/JTCalendar.git", :commit => "e2eef5e72f109743f9bc0de314c689b7e68342bb"}
+  s.source       = { :git => "https://github.com/pony001/JTCalendar.git", :commit => "3200c878b1e5be3319ca80188d904f764b5ed234"}
   s.source_files  = 'JTCalendar/*'
   s.requires_arc = true
   s.screenshots   = ["https://raw.githubusercontent.com/jonathantribouharet/JTCalendar/master/Screens/example.gif"]
