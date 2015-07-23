@@ -7,7 +7,7 @@
 
 #import "PJTCalendar.h"
 
-#define NUMBER_PAGES_LOADED 5 // Must be the same in JTCalendarView, JTCalendarMenuView, JTCalendarContentView
+#define NUMBER_PAGES_LOADED 3 // Must be the same in JTCalendarView, JTCalendarMenuView, JTCalendarContentView
 
 @interface PJTCalendar(){
     BOOL cacheLastWeekMode;
@@ -154,6 +154,7 @@
 
 - (void)updatePage
 {
+    
     CGFloat pageWidth = CGRectGetWidth(self.contentView.frame);
     CGFloat fractionalPage = self.contentView.contentOffset.x / pageWidth;
         
@@ -186,23 +187,44 @@
         
     NSDate *currentDate = [calendar dateByAddingComponents:dayComponent toDate:self.currentDate options:0];
     
-    [self setCurrentDate:currentDate];
     
-    if(!self.calendarAppearance.isWeekMode){
-        self.menuMonthsView.scrollEnabled = YES;
+    // 如果超出了startdate 和 enddate 则回到前一步
+    if ([PJTCalendar date:currentDate isBetweenDate:self.calendarAppearance.startDate andDate:self.calendarAppearance.endDate]) {
+        [self setCurrentDate:currentDate];
+        
+        if(!self.calendarAppearance.isWeekMode){
+            self.menuMonthsView.scrollEnabled = YES;
+        }
+        self.contentView.scrollEnabled = YES;
+        
+        if(currentPage < (NUMBER_PAGES_LOADED / 2)){
+            if([self.dataSource respondsToSelector:@selector(calendarDidLoadPreviousPage)]){
+                [self.dataSource calendarDidLoadPreviousPage];
+            }
+        }
+        else if(currentPage > (NUMBER_PAGES_LOADED / 2)){
+            if([self.dataSource respondsToSelector:@selector(calendarDidLoadNextPage)]){
+                [self.dataSource calendarDidLoadNextPage];
+            }
+        }
+    } else {
+        //[self reloadAppearance];
     }
-    self.contentView.scrollEnabled = YES;
     
-    if(currentPage < (NUMBER_PAGES_LOADED / 2)){
-        if([self.dataSource respondsToSelector:@selector(calendarDidLoadPreviousPage)]){
-            [self.dataSource calendarDidLoadPreviousPage];
-        }
-    }
-    else if(currentPage > (NUMBER_PAGES_LOADED / 2)){
-        if([self.dataSource respondsToSelector:@selector(calendarDidLoadNextPage)]){
-            [self.dataSource calendarDidLoadNextPage];
-        }
-    }
+    
+    
+   
+}
+
++ (BOOL)date:(NSDate*)date isBetweenDate:(NSDate*)beginDate andDate:(NSDate*)endDate
+{
+    if ([date compare:beginDate] == NSOrderedAscending)
+        return NO;
+    
+    if ([date compare:endDate] == NSOrderedDescending)
+        return NO;
+    
+    return YES;
 }
 
 - (void)repositionViews

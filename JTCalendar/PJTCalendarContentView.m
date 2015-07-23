@@ -12,7 +12,7 @@
 #import "PJTCalendarMonthView.h"
 #import "PJTCalendarWeekView.h"
 
-#define NUMBER_PAGES_LOADED 5 // Must be the same in JTCalendarView, JTCalendarMenuView, JTCalendarContentView
+#define NUMBER_PAGES_LOADED 3 // Must be the same in JTCalendarView, JTCalendarMenuView, JTCalendarContentView
 
 @interface PJTCalendarContentView(){
     NSMutableArray *monthsViews;
@@ -90,7 +90,7 @@
         }
     }
     
-    self.contentSize = CGSizeMake(width * NUMBER_PAGES_LOADED, height);
+    self.contentSize = CGSizeMake(width * NUMBER_PAGES_LOADED + 0.5, height);
 }
 
 - (void)setCurrentDate:(NSDate *)currentDate
