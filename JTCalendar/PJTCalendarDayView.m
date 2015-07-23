@@ -213,6 +213,8 @@ static NSString *const kJTCalendarDaySelected = @"kJTCalendarDaySelected";
     if (isOutOfRange) {
         textLabel.textColor = [self.calendarManager.calendarAppearance dayTextOutOfRangeColor];
         targetView.color = [self.calendarManager.calendarAppearance dayDotOutOfRangeColor];
+        
+        opacity = 0.;
     }
     else if(selected){
         if(!self.isOtherMonth){
@@ -281,7 +283,6 @@ static NSString *const kJTCalendarDaySelected = @"kJTCalendarDaySelected";
 - (void)reloadData
 {
     float targetPerentage = [self.calendarManager.dataCache targetPercentageForDate:self.date];
-    NSLog(@"targetPerentage:%f", targetPerentage);
     targetView.anglePercent = targetPerentage;
     //dotView.hidden = ![self.calendarManager.dataCache haveEvent:self.date];
     
